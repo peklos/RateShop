@@ -11,3 +11,6 @@ build/
 .env
 .vite/
 rateshop_launcher.py
+rateshop_backend_entry.py
+release/
+backend-dist/
