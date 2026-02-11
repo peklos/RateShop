@@ -22,8 +22,9 @@ jobs:
         with:
           python-version: '3.11'
 
-      - name: Install frontend dependencies
+      - name: Clean and install frontend dependencies
         run: |
+          Remove-Item -Recurse -Force node_modules -ErrorAction SilentlyContinue
           Remove-Item -Force package-lock.json -ErrorAction SilentlyContinue
           npm install
         working-directory: frontend
