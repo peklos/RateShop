@@ -23,8 +23,11 @@ jobs:
           python-version: '3.11'
 
       - name: Install frontend dependencies
-        run: npm install
+        run: |
+          Remove-Item -Force package-lock.json -ErrorAction SilentlyContinue
+          npm install
         working-directory: frontend
+        shell: pwsh
 
       - name: Build frontend
         run: npm run build
