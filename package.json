@@ -1,0 +1,71 @@
+{
+  "name": "rateshop",
+  "version": "1.0.0",
+  "description": "RateShop - Product rating and review application",
+  "main": "electron/main.js",
+  "private": true,
+  "scripts": {
+    "start": "electron .",
+    "build:frontend": "cd frontend && npm install && npm run build",
+    "build:electron": "electron-builder",
+    "build:electron:win": "electron-builder --win",
+    "build:electron:mac": "electron-builder --mac",
+    "build:electron:linux": "electron-builder --linux"
+  },
+  "build": {
+    "appId": "com.rateshop.app",
+    "productName": "RateShop",
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "electron/**/*",
+      "!backend",
+      "!frontend",
+      "!release",
+      "!.github"
+    ],
+    "extraResources": [
+      {
+        "from": "backend-dist/",
+        "to": "backend",
+        "filter": ["**/*"]
+      }
+    ],
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": ["x64"]
+        }
+      ],
+      "icon": null
+    },
+    "mac": {
+      "target": [
+        {
+          "target": "dmg",
+          "arch": ["x64", "arm64"]
+        }
+      ],
+      "category": "public.app-category.shopping"
+    },
+    "linux": {
+      "target": [
+        {
+          "target": "AppImage",
+          "arch": ["x64"]
+        }
+      ],
+      "category": "Utility"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true
+    }
+  },
+  "devDependencies": {
+    "electron": "^33.0.0",
+    "electron-builder": "^25.0.0"
+  }
+}

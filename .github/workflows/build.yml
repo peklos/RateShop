@@ -1,4 +1,4 @@
-name: Build Windows App
+name: Build Electron App
 
 on:
   push:
@@ -7,7 +7,24 @@ on:
 
 jobs:
   build:
-    runs-on: windows-latest
+    strategy:
+      matrix:
+        include:
+          - os: windows-latest
+            platform: win
+            pyinstaller_sep: ";"
+            backend_exe: RateShopBackend.exe
+          - os: ubuntu-latest
+            platform: linux
+            pyinstaller_sep: ":"
+            backend_exe: RateShopBackend
+          - os: macos-latest
+            platform: mac
+            pyinstaller_sep: ":"
+            backend_exe: RateShopBackend
+
+    runs-on: ${{ matrix.os }}
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -22,33 +39,31 @@ jobs:
         with:
           python-version: '3.11'
 
-      - name: Clean and install frontend dependencies
-        run: |
-          Remove-Item -Recurse -Force node_modules -ErrorAction SilentlyContinue
-          Remove-Item -Force package-lock.json -ErrorAction SilentlyContinue
-          npm install
+      # ── Frontend ──────────────────────────────────────────────
+      - name: Install frontend dependencies
+        run: npm install
         working-directory: frontend
-        shell: pwsh
 
       - name: Build frontend
         run: npm run build
         working-directory: frontend
 
+      # ── Backend (PyInstaller) ─────────────────────────────────
       - name: Install backend dependencies
         run: |
           pip install -r requirements.txt
           pip install pyinstaller
         working-directory: backend
 
-      - name: Create launcher script
+      - name: Create backend entry point
         shell: python
         run: |
           import os
-          launcher = os.path.join("backend", "rateshop_launcher.py")
-          with open(launcher, "w", encoding="utf-8") as f:
-              f.write('''import os, sys, threading, time
+          entry = os.path.join("backend", "rateshop_backend_entry.py")
+          with open(entry, "w", encoding="utf-8") as f:
+              f.write('''import os, sys
 
-          if getattr(sys, 'frozen', False):
+          if getattr(sys, "frozen", False):
               BASE_DIR = sys._MEIPASS
           else:
               BASE_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -57,7 +72,8 @@ jobs:
           os.chdir(os.path.join(BASE_DIR, "backend"))
 
           import database
-          if getattr(sys, 'frozen', False):
+
+          if getattr(sys, "frozen", False):
               database.DB_PATH = os.path.join(os.path.dirname(sys.executable), "rateshop.db")
 
           database.init_db()
@@ -65,24 +81,15 @@ jobs:
           from seed_data import seed
           seed()
 
-          def start_server():
-              import uvicorn
-              from main import app
-              uvicorn.run(app, host="127.0.0.1", port=8000)
-
-          server_thread = threading.Thread(target=start_server, daemon=True)
-          server_thread.start()
-
-          time.sleep(1)
-
-          import webview
-          webview.create_window("RateShop", "http://127.0.0.1:8000", width=1280, height=800)
-          webview.start(gui="edgechromium")
+          import uvicorn
+          from main import app
+          uvicorn.run(app, host="127.0.0.1", port=8000)
           ''')
 
-      - name: Build with PyInstaller
+      - name: Build backend with PyInstaller (Windows)
+        if: runner.os == 'Windows'
         run: |
-          pyinstaller --name=RateShop --onedir --windowed ^
+          pyinstaller --name=RateShopBackend --onedir --console ^
             --add-data="../frontend/dist;frontend/dist" ^
             --add-data=".;backend" ^
             --hidden-import=uvicorn.logging ^
@@ -96,20 +103,72 @@ jobs:
             --hidden-import=uvicorn.lifespan ^
             --hidden-import=uvicorn.lifespan.on ^
             --hidden-import=uvicorn.lifespan.off ^
-            --hidden-import=webview ^
-            --hidden-import=webview.platforms.edgechromium ^
-            --hidden-import=proxy_tools ^
             --collect-all=fastapi ^
             --collect-all=starlette ^
-            --collect-all=webview ^
-            --collect-all=proxy_tools ^
-            rateshop_launcher.py
+            rateshop_backend_entry.py
+          dir dist\RateShopBackend\
         working-directory: backend
         shell: cmd
 
+      - name: Build backend with PyInstaller (Unix)
+        if: runner.os != 'Windows'
+        run: |
+          pyinstaller --name=RateShopBackend --onedir --console \
+            --add-data="../frontend/dist:frontend/dist" \
+            --add-data=".:backend" \
+            --hidden-import=uvicorn.logging \
+            --hidden-import=uvicorn.loops \
+            --hidden-import=uvicorn.loops.auto \
+            --hidden-import=uvicorn.protocols \
+            --hidden-import=uvicorn.protocols.http \
+            --hidden-import=uvicorn.protocols.http.auto \
+            --hidden-import=uvicorn.protocols.websockets \
+            --hidden-import=uvicorn.protocols.websockets.auto \
+            --hidden-import=uvicorn.lifespan \
+            --hidden-import=uvicorn.lifespan.on \
+            --hidden-import=uvicorn.lifespan.off \
+            --collect-all=fastapi \
+            --collect-all=starlette \
+            rateshop_backend_entry.py
+          ls -la dist/RateShopBackend/
+        working-directory: backend
+
+      - name: Move backend dist to project root
+        shell: bash
+        run: |
+          mkdir -p backend-dist
+          cp -r backend/dist/RateShopBackend/* backend-dist/
+
+      # ── Electron ──────────────────────────────────────────────
+      - name: Install Electron dependencies
+        run: npm install
+
+      - name: Build Electron app (Windows)
+        if: matrix.platform == 'win'
+        run: npx electron-builder --win
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build Electron app (macOS)
+        if: matrix.platform == 'mac'
+        run: npx electron-builder --mac --x64
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build Electron app (Linux)
+        if: matrix.platform == 'linux'
+        run: npx electron-builder --linux
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      # ── Upload ────────────────────────────────────────────────
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
-          name: RateShop-Windows
-          path: backend/dist/RateShop/
+          name: RateShop-${{ matrix.platform }}
+          path: |
+            release/*.exe
+            release/*.dmg
+            release/*.AppImage
           compression-level: 9
+          if-no-files-found: warn
