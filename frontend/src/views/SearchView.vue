@@ -27,7 +27,6 @@
     </div>
 
     <div v-else-if="searched">
-      <!-- Products results -->
       <div v-if="results.products.length > 0" class="results-section">
         <h2>Товары ({{ results.products.length }})</h2>
         <div class="grid grid-3">
@@ -35,7 +34,6 @@
         </div>
       </div>
 
-      <!-- Reviews results -->
       <div v-if="results.reviews.length > 0" class="results-section">
         <h2>Отзывы ({{ results.reviews.length }})</h2>
         <ReviewCard
@@ -134,6 +132,6 @@ export default {
 .results-section h2 {
   font-size: 20px;
   margin-bottom: 16px;
-  color: #1a1a2e;
+  color: #e8e8f0;
 }
 </style>

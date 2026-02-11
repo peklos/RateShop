@@ -95,11 +95,12 @@ export default {
 .reviewer-name {
   font-weight: 600;
   font-size: 14px;
+  color: #e0e0e0;
 }
 
 .review-date {
   font-size: 12px;
-  color: #999;
+  color: #777;
 }
 
 .review-product {
@@ -108,19 +109,19 @@ export default {
 }
 
 .review-product a {
-  color: #4a90d9;
+  color: #5a9fe6;
   font-weight: 500;
 }
 
 .review-title {
   font-size: 16px;
   margin-bottom: 8px;
-  color: #1a1a2e;
+  color: #e8e8f0;
 }
 
 .review-text {
   font-size: 14px;
-  color: #555;
+  color: #b0b0c0;
   margin-bottom: 12px;
   line-height: 1.6;
 }
@@ -131,12 +132,12 @@ export default {
 }
 
 .pros {
-  color: #27ae60;
+  color: #4caf50;
   margin-bottom: 4px;
 }
 
 .cons {
-  color: #e74c3c;
+  color: #ff6b6b;
 }
 
 .pros .label, .cons .label {
@@ -156,17 +157,18 @@ export default {
 }
 
 .vote-btn {
-  background: #f0f0f0;
+  background: #252540;
   border: none;
   padding: 4px 10px;
   border-radius: 20px;
   font-size: 13px;
+  color: #b0b0c0;
   cursor: pointer;
   transition: background 0.2s;
 }
 
 .vote-btn:hover {
-  background: #e0e0e0;
+  background: #303050;
 }
 
 .review-badges {

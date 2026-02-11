@@ -45,14 +45,14 @@ export default {
 
 .product-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.4);
   text-decoration: none;
 }
 
 .product-image {
   width: 100%;
   height: 200px;
-  background: #f8f9fa;
+  background: #16162a;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -74,7 +74,7 @@ export default {
 
 .product-category {
   font-size: 12px;
-  color: #4a90d9;
+  color: #5a9fe6;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.5px;
@@ -85,7 +85,7 @@ export default {
   font-size: 16px;
   font-weight: 600;
   margin-bottom: 4px;
-  color: #1a1a2e;
+  color: #e8e8f0;
   line-height: 1.3;
 }
 
@@ -103,6 +103,6 @@ export default {
 .product-price {
   font-size: 20px;
   font-weight: 700;
-  color: #e74c3c;
+  color: #ff6b6b;
 }
 </style>
