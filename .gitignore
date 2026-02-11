@@ -1,0 +1,12 @@
+__pycache__/
+*.pyc
+*.pyo
+*.db
+node_modules/
+dist/
+build/
+*.spec
+*.egg-info/
+.env
+.vite/
+rateshop_launcher.py
