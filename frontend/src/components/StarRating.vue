@@ -46,7 +46,7 @@ export default {
 }
 
 .star {
-  color: #ddd;
+  color: #3a3a50;
   font-size: 20px;
   transition: color 0.15s;
   line-height: 1;
@@ -68,12 +68,12 @@ export default {
   margin-left: 6px;
   font-weight: 600;
   font-size: 15px;
-  color: #333;
+  color: #e0e0e0;
 }
 
 .rating-count {
   margin-left: 4px;
   font-size: 13px;
-  color: #999;
+  color: #777;
 }
 </style>

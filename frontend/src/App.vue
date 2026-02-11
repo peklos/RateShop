@@ -24,9 +24,9 @@ export default {
 }
 
 body {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-  background: #f5f7fa;
-  color: #333;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI Emoji', 'Apple Color Emoji', 'Noto Color Emoji', sans-serif;
+  background: #0f0f1a;
+  color: #e0e0e0;
   line-height: 1.6;
 }
 
@@ -41,7 +41,7 @@ body {
 }
 
 a {
-  color: #4a90d9;
+  color: #5a9fe6;
   text-decoration: none;
 }
 
@@ -56,12 +56,13 @@ button {
 
 input, select, textarea {
   font-family: inherit;
+  color: #e0e0e0;
 }
 
 .card {
-  background: white;
+  background: #1a1a2e;
   border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
   padding: 20px;
 }
 
@@ -107,7 +108,7 @@ input, select, textarea {
 .btn-outline {
   background: transparent;
   border: 2px solid #4a90d9;
-  color: #4a90d9;
+  color: #5a9fe6;
 }
 
 .btn-outline:hover {
@@ -124,7 +125,7 @@ input, select, textarea {
   font-size: 28px;
   font-weight: 700;
   margin-bottom: 24px;
-  color: #1a1a2e;
+  color: #e8e8f0;
 }
 
 .loading {
@@ -158,10 +159,11 @@ input, select, textarea {
 .filters-bar select,
 .filters-bar input {
   padding: 8px 14px;
-  border: 2px solid #e0e0e0;
+  border: 2px solid #2a2a40;
   border-radius: 8px;
   font-size: 14px;
-  background: white;
+  background: #16162a;
+  color: #e0e0e0;
   transition: border-color 0.2s;
 }
 
@@ -180,29 +182,29 @@ input, select, textarea {
 }
 
 .badge-green {
-  background: #e8f5e9;
-  color: #2e7d32;
+  background: #1b3a2a;
+  color: #4caf50;
 }
 
 .badge-blue {
-  background: #e3f2fd;
-  color: #1565c0;
+  background: #1a2a3e;
+  color: #5a9fe6;
 }
 
 .badge-orange {
-  background: #fff3e0;
-  color: #e65100;
+  background: #3a2a1a;
+  color: #f39c12;
 }
 
 .empty-state {
   text-align: center;
   padding: 60px 20px;
-  color: #999;
+  color: #777;
 }
 
 .empty-state h3 {
   font-size: 20px;
   margin-bottom: 8px;
-  color: #666;
+  color: #999;
 }
 </style>

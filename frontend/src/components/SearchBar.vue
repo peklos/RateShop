@@ -35,24 +35,29 @@ export default {
   position: absolute;
   left: 14px;
   font-size: 18px;
-  color: #999;
+  color: #777;
   pointer-events: none;
 }
 
 .search-input {
   width: 100%;
   padding: 12px 40px 12px 42px;
-  border: 2px solid #e0e0e0;
+  border: 2px solid #2a2a40;
   border-radius: 12px;
   font-size: 15px;
-  background: white;
+  background: #16162a;
+  color: #e0e0e0;
   transition: border-color 0.2s, box-shadow 0.2s;
 }
 
 .search-input:focus {
   outline: none;
   border-color: #4a90d9;
-  box-shadow: 0 0 0 3px rgba(74, 144, 217, 0.15);
+  box-shadow: 0 0 0 3px rgba(74, 144, 217, 0.2);
+}
+
+.search-input::placeholder {
+  color: #666;
 }
 
 .clear-btn {
@@ -61,12 +66,12 @@ export default {
   background: none;
   border: none;
   font-size: 16px;
-  color: #999;
+  color: #777;
   cursor: pointer;
   padding: 4px;
 }
 
 .clear-btn:hover {
-  color: #333;
+  color: #e0e0e0;
 }
 </style>

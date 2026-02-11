@@ -162,7 +162,7 @@ export default {
 .stat-value {
   font-size: 36px;
   font-weight: 700;
-  color: #4a90d9;
+  color: #5a9fe6;
 }
 
 .stat-label {
@@ -178,6 +178,7 @@ export default {
 .dist-card h3 {
   font-size: 18px;
   margin-bottom: 16px;
+  color: #e0e0e0;
 }
 
 .dist-row {
@@ -190,14 +191,14 @@ export default {
 .dist-label {
   width: 45px;
   font-size: 14px;
-  color: #666;
+  color: #999;
   text-align: right;
 }
 
 .dist-bar {
   flex: 1;
   height: 14px;
-  background: #eee;
+  background: #252540;
   border-radius: 7px;
   overflow: hidden;
 }
@@ -224,17 +225,18 @@ export default {
 .section-title {
   font-size: 18px;
   margin-bottom: 16px;
+  color: #e0e0e0;
 }
 
-.top-title { color: #27ae60; }
-.worst-title { color: #e74c3c; }
+.top-title { color: #4caf50; }
+.worst-title { color: #ff6b6b; }
 
 .rank-item {
   display: flex;
   align-items: center;
   gap: 12px;
   padding: 10px 0;
-  border-bottom: 1px solid #f0f0f0;
+  border-bottom: 1px solid #252540;
 }
 
 .rank-item:last-child { border-bottom: none; }
@@ -242,7 +244,7 @@ export default {
 .rank-num {
   font-size: 20px;
   font-weight: 700;
-  color: #ccc;
+  color: #555;
   width: 28px;
   text-align: center;
 }
@@ -259,7 +261,7 @@ export default {
 .rank-name {
   font-weight: 600;
   font-size: 14px;
-  color: #333;
+  color: #e0e0e0;
 }
 
 .rank-meta {
@@ -271,7 +273,7 @@ export default {
 
 .rank-reviews {
   font-size: 12px;
-  color: #999;
+  color: #777;
 }
 
 .table-card {
@@ -288,7 +290,7 @@ export default {
 .ratings-table th {
   text-align: left;
   padding: 12px 8px;
-  border-bottom: 2px solid #eee;
+  border-bottom: 2px solid #2a2a40;
   color: #888;
   font-weight: 600;
   font-size: 12px;
@@ -297,11 +299,12 @@ export default {
 
 .ratings-table td {
   padding: 12px 8px;
-  border-bottom: 1px solid #f0f0f0;
+  border-bottom: 1px solid #1e1e30;
+  color: #c0c0d0;
 }
 
 .ratings-table a {
-  color: #4a90d9;
+  color: #5a9fe6;
   font-weight: 500;
 }
 

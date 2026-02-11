@@ -246,7 +246,7 @@ export default {
 <style scoped>
 .guide-subtitle {
   font-size: 16px;
-  color: #666;
+  color: #999;
   margin-bottom: 20px;
 }
 
@@ -281,19 +281,19 @@ export default {
   flex: 1;
   font-size: 18px;
   font-weight: 600;
-  color: #1a1a2e;
+  color: #e8e8f0;
   margin: 0;
 }
 
 .section-toggle {
   font-size: 14px;
-  color: #999;
+  color: #777;
 }
 
 .section-content {
   margin-top: 20px;
   padding-top: 16px;
-  border-top: 1px solid #f0f0f0;
+  border-top: 1px solid #252540;
 }
 
 .guide-step {
@@ -324,17 +324,17 @@ export default {
   font-size: 16px;
   font-weight: 600;
   margin-bottom: 4px;
-  color: #333;
+  color: #e0e0e0;
 }
 
 .step-text {
   font-size: 14px;
-  color: #555;
+  color: #b0b0c0;
   line-height: 1.7;
 }
 
 .tips-box {
-  background: #fff8e1;
+  background: #2a2a1a;
   border-radius: 8px;
   padding: 16px;
   margin-top: 12px;
@@ -343,7 +343,7 @@ export default {
 .tips-box h4 {
   font-size: 14px;
   margin-bottom: 8px;
-  color: #f57f17;
+  color: #f39c12;
 }
 
 .tips-box ul {
@@ -353,7 +353,7 @@ export default {
 
 .tips-box li {
   font-size: 13px;
-  color: #666;
+  color: #b0b0c0;
   margin-bottom: 4px;
   line-height: 1.5;
 }
@@ -361,7 +361,7 @@ export default {
 .faq-item {
   margin-bottom: 16px;
   padding-bottom: 16px;
-  border-bottom: 1px solid #f0f0f0;
+  border-bottom: 1px solid #252540;
 }
 
 .faq-item:last-child {
@@ -372,13 +372,13 @@ export default {
 .faq-question {
   font-size: 15px;
   font-weight: 600;
-  color: #333;
+  color: #e0e0e0;
   margin-bottom: 6px;
 }
 
 .faq-answer {
   font-size: 14px;
-  color: #666;
+  color: #999;
   line-height: 1.6;
 }
 </style>

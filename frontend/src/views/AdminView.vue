@@ -17,6 +17,7 @@
           <div v-if="loginError" class="error-msg">{{ loginError }}</div>
           <button type="submit" class="btn btn-primary" style="width: 100%;">Войти</button>
         </form>
+        <p class="test-hint">Тестовые данные — логин: <strong>admin</strong>, пароль: <strong>admin123</strong></p>
       </div>
     </div>
 
@@ -351,6 +352,7 @@ export default {
   font-size: 24px;
   text-align: center;
   margin-bottom: 8px;
+  color: #e8e8f0;
 }
 
 .login-subtitle {
@@ -366,6 +368,17 @@ export default {
   gap: 16px;
 }
 
+.test-hint {
+  margin-top: 16px;
+  text-align: center;
+  font-size: 12px;
+  color: #666;
+}
+
+.test-hint strong {
+  color: #999;
+}
+
 .form-row {
   display: flex;
   flex-direction: column;
@@ -375,16 +388,18 @@ export default {
 .form-row label {
   font-size: 14px;
   font-weight: 600;
-  color: #333;
+  color: #c0c0d0;
 }
 
 .form-row input,
 .form-row select,
 .form-row textarea {
   padding: 10px 14px;
-  border: 2px solid #e0e0e0;
+  border: 2px solid #2a2a40;
   border-radius: 8px;
   font-size: 14px;
+  background: #16162a;
+  color: #e0e0e0;
 }
 
 .form-row input:focus,
@@ -394,8 +409,13 @@ export default {
   border-color: #4a90d9;
 }
 
+.form-row input::placeholder,
+.form-row textarea::placeholder {
+  color: #555;
+}
+
 .error-msg {
-  color: #e74c3c;
+  color: #ff6b6b;
   font-size: 14px;
   text-align: center;
 }
@@ -412,14 +432,14 @@ export default {
   align-items: center;
   gap: 12px;
   font-size: 14px;
-  color: #666;
+  color: #999;
 }
 
 .admin-tabs {
   display: flex;
   gap: 4px;
   margin-bottom: 24px;
-  border-bottom: 2px solid #eee;
+  border-bottom: 2px solid #252540;
   padding-bottom: 0;
 }
 
@@ -437,11 +457,11 @@ export default {
 }
 
 .admin-tab:hover {
-  color: #333;
+  color: #e0e0e0;
 }
 
 .admin-tab.active {
-  color: #4a90d9;
+  color: #5a9fe6;
   border-bottom-color: #4a90d9;
 }
 
@@ -460,7 +480,7 @@ export default {
 .stat-value {
   font-size: 32px;
   font-weight: 700;
-  color: #4a90d9;
+  color: #5a9fe6;
 }
 
 .stat-label {
@@ -478,7 +498,7 @@ export default {
 .admin-table th {
   text-align: left;
   padding: 12px 8px;
-  border-bottom: 2px solid #eee;
+  border-bottom: 2px solid #2a2a40;
   color: #888;
   font-weight: 600;
   font-size: 11px;
@@ -487,7 +507,8 @@ export default {
 
 .admin-table td {
   padding: 10px 8px;
-  border-bottom: 1px solid #f0f0f0;
+  border-bottom: 1px solid #1e1e30;
+  color: #c0c0d0;
 }
 
 .actions-cell {
@@ -504,6 +525,7 @@ export default {
 
 .tab-header h2 {
   font-size: 20px;
+  color: #e8e8f0;
 }
 
 .form-card {
@@ -512,6 +534,7 @@ export default {
 
 .form-card h3 {
   margin-bottom: 16px;
+  color: #e8e8f0;
 }
 
 .form-grid {
@@ -534,10 +557,12 @@ export default {
 
 .tab-content h2 {
   margin-bottom: 16px;
+  color: #e8e8f0;
 }
 
 .tab-content h3 {
   margin-bottom: 12px;
+  color: #e0e0e0;
 }
 
 @media (max-width: 768px) {

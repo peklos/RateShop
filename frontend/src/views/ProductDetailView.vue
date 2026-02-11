@@ -183,7 +183,7 @@ export default {
 
 .back-link a {
   font-size: 14px;
-  color: #4a90d9;
+  color: #5a9fe6;
 }
 
 .product-main {
@@ -202,7 +202,7 @@ export default {
   max-height: 400px;
   object-fit: contain;
   border-radius: 8px;
-  background: #f8f9fa;
+  background: #16162a;
 }
 
 .thumbnails {
@@ -228,7 +228,7 @@ export default {
 
 .product-category {
   font-size: 13px;
-  color: #4a90d9;
+  color: #5a9fe6;
   font-weight: 600;
   text-transform: uppercase;
   margin-bottom: 4px;
@@ -237,7 +237,7 @@ export default {
 .product-name {
   font-size: 28px;
   font-weight: 700;
-  color: #1a1a2e;
+  color: #e8e8f0;
   margin-bottom: 4px;
 }
 
@@ -253,7 +253,7 @@ export default {
 
 .product-description {
   font-size: 15px;
-  color: #555;
+  color: #b0b0c0;
   margin-bottom: 20px;
   line-height: 1.7;
 }
@@ -261,14 +261,14 @@ export default {
 .product-price-big {
   font-size: 32px;
   font-weight: 700;
-  color: #e74c3c;
+  color: #ff6b6b;
   margin-bottom: 24px;
 }
 
 .rating-dist h3 {
   font-size: 16px;
   margin-bottom: 12px;
-  color: #333;
+  color: #e0e0e0;
 }
 
 .dist-row {
@@ -281,14 +281,14 @@ export default {
 .dist-label {
   width: 40px;
   font-size: 13px;
-  color: #666;
+  color: #999;
   text-align: right;
 }
 
 .dist-bar {
   flex: 1;
   height: 10px;
-  background: #eee;
+  background: #252540;
   border-radius: 5px;
   overflow: hidden;
 }
@@ -314,7 +314,7 @@ export default {
 .review-form-section h2 {
   font-size: 22px;
   margin-bottom: 20px;
-  color: #1a1a2e;
+  color: #e8e8f0;
 }
 
 .review-form {
@@ -332,15 +332,17 @@ export default {
 .form-row label {
   font-size: 14px;
   font-weight: 600;
-  color: #333;
+  color: #c0c0d0;
 }
 
 .form-row input,
 .form-row textarea {
   padding: 10px 14px;
-  border: 2px solid #e0e0e0;
+  border: 2px solid #2a2a40;
   border-radius: 8px;
   font-size: 14px;
+  background: #16162a;
+  color: #e0e0e0;
   transition: border-color 0.2s;
 }
 
@@ -350,6 +352,11 @@ export default {
   border-color: #4a90d9;
 }
 
+.form-row input::placeholder,
+.form-row textarea::placeholder {
+  color: #555;
+}
+
 .form-row-pair {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -357,7 +364,7 @@ export default {
 }
 
 .submit-message {
-  color: #27ae60;
+  color: #4caf50;
   font-weight: 500;
   font-size: 14px;
 }
@@ -369,7 +376,7 @@ export default {
 .reviews-section h2 {
   font-size: 22px;
   margin-bottom: 20px;
-  color: #1a1a2e;
+  color: #e8e8f0;
 }
 
 @media (max-width: 768px) {
