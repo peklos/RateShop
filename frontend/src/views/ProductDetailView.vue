@@ -26,13 +26,13 @@
           <StarRating :modelValue="product.avg_rating || 0" :showValue="true" :showCount="true" :count="product.review_count || 0" />
         </div>
         <p class="product-description">{{ product.description }}</p>
-        <div class="product-price-big">{{ formatPrice(product.price) }} &#8381;</div>
+        <div class="product-price-big">{{ formatPrice(product.price) }} ₽</div>
 
         <!-- Rating distribution -->
         <div class="rating-dist" v-if="product.rating_distribution">
           <h3>Распределение оценок</h3>
           <div v-for="star in [5,4,3,2,1]" :key="star" class="dist-row">
-            <span class="dist-label">{{ star }} &#9733;</span>
+            <span class="dist-label">{{ star }} ★</span>
             <div class="dist-bar">
               <div class="dist-fill" :style="{ width: getDistPercent(star) + '%' }"></div>
             </div>

@@ -3,7 +3,7 @@
     <!-- Login Form -->
     <div v-if="!isLoggedIn" class="login-section">
       <div class="login-card card">
-        <h1 class="login-title">&#9881; Панель администратора</h1>
+        <h1 class="login-title">⚙️ Панель администратора</h1>
         <p class="login-subtitle">Введите логин и пароль для входа</p>
         <form @submit.prevent="login" class="login-form">
           <div class="form-row">
@@ -26,7 +26,7 @@
       <div class="admin-header">
         <h1 class="page-title">Панель администратора</h1>
         <div class="admin-user">
-          <span>&#128100; {{ admin.username }} ({{ admin.role }})</span>
+          <span>👤 {{ admin.username }} ({{ admin.role }})</span>
           <button class="btn btn-outline btn-sm" @click="logout">Выйти</button>
         </div>
       </div>
@@ -79,7 +79,7 @@
                 <td>{{ r.id }}</td>
                 <td>{{ r.product_name }}</td>
                 <td>{{ r.reviewer_name }}</td>
-                <td>{{ r.rating }} &#9733;</td>
+                <td>{{ r.rating }} ⭐</td>
                 <td>{{ r.created_at }}</td>
               </tr>
             </tbody>
@@ -107,7 +107,7 @@
               <td>{{ r.id }}</td>
               <td>{{ r.product_name }}</td>
               <td>{{ r.reviewer_name }}</td>
-              <td>{{ r.rating }} &#9733;</td>
+              <td>{{ r.rating }} ⭐</td>
               <td>{{ r.title || '-' }}</td>
               <td>{{ r.created_at }}</td>
               <td>
@@ -128,7 +128,7 @@
         </div>
 
         <!-- Add Product Form -->
-        <div v-if="showProductForm" class="card form-card">
+        <div v-if="showProductForm" ref="productFormCard" class="card form-card">
           <h3>{{ editingProduct ? 'Редактировать товар' : 'Новый товар' }}</h3>
           <form @submit.prevent="saveProduct" class="product-form">
             <div class="form-grid">
@@ -189,12 +189,12 @@
               <td>{{ p.name }}</td>
               <td>{{ p.category_name || '-' }}</td>
               <td>{{ p.brand_name || '-' }}</td>
-              <td>{{ formatPrice(p.price) }} &#8381;</td>
-              <td>{{ Number(p.avg_rating).toFixed(1) }} &#9733;</td>
+              <td>{{ formatPrice(p.price) }} ₽</td>
+              <td>{{ Number(p.avg_rating).toFixed(1) }} ⭐</td>
               <td>{{ p.review_count }}</td>
               <td class="actions-cell">
-                <button class="btn btn-outline btn-sm" @click="editProduct(p)">&#9998;</button>
-                <button class="btn btn-danger btn-sm" @click="deleteProduct(p.id)">&#10005;</button>
+                <button class="btn btn-outline btn-sm" @click="editProduct(p)">✏️</button>
+                <button class="btn btn-danger btn-sm" @click="deleteProduct(p.id)">✕</button>
               </td>
             </tr>
           </tbody>
@@ -217,9 +217,9 @@ export default {
       loginError: '',
       activeTab: 'stats',
       tabs: [
-        { id: 'stats', icon: '&#128202;', label: 'Статистика' },
-        { id: 'reviews', icon: '&#128172;', label: 'Отзывы' },
-        { id: 'products', icon: '&#128722;', label: 'Товары' },
+        { id: 'stats', icon: '📊', label: 'Статистика' },
+        { id: 'reviews', icon: '💬', label: 'Отзывы' },
+        { id: 'products', icon: '🛒', label: 'Товары' },
       ],
       stats: null,
       adminReviews: [],
@@ -306,6 +306,11 @@ export default {
         brand_id: product.brand_id || ''
       }
       this.showProductForm = true
+      this.$nextTick(() => {
+        if (this.$refs.productFormCard) {
+          this.$refs.productFormCard.scrollIntoView({ behavior: 'smooth', block: 'start' })
+        }
+      })
     },
     cancelEdit() {
       this.editingProduct = null

@@ -10,7 +10,7 @@
       <div class="product-rating">
         <StarRating :modelValue="product.avg_rating || 0" :showValue="true" :showCount="true" :count="product.review_count || 0" />
       </div>
-      <div class="product-price">{{ formatPrice(product.price) }} &#8381;</div>
+      <div class="product-price">{{ formatPrice(product.price) }} ₽</div>
     </div>
   </router-link>
 </template>

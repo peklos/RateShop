@@ -23,7 +23,7 @@
       <h3>Распределение оценок (все товары)</h3>
       <div class="dist-grid">
         <div v-for="star in [5,4,3,2,1]" :key="star" class="dist-row">
-          <span class="dist-label">{{ star }} &#9733;</span>
+          <span class="dist-label">{{ star }} ★</span>
           <div class="dist-bar">
             <div class="dist-fill" :style="{ width: getDistPercent(star) + '%' }"></div>
           </div>
@@ -35,7 +35,7 @@
     <!-- Top / Worst -->
     <div v-if="stats" class="top-worst-grid">
       <div class="card">
-        <h3 class="section-title top-title">&#127942; Топ-5 лучших товаров</h3>
+        <h3 class="section-title top-title">🏆 Топ-5 лучших товаров</h3>
         <div v-for="(p, i) in stats.top_products" :key="'top-'+p.product_id" class="rank-item">
           <span class="rank-num">{{ i + 1 }}</span>
           <img :src="p.image_url" class="rank-img" />
@@ -49,7 +49,7 @@
         </div>
       </div>
       <div class="card">
-        <h3 class="section-title worst-title">&#128308; Топ-5 с низким рейтингом</h3>
+        <h3 class="section-title worst-title">🔴 Топ-5 с низким рейтингом</h3>
         <div v-for="(p, i) in stats.worst_products" :key="'worst-'+p.product_id" class="rank-item">
           <span class="rank-num">{{ i + 1 }}</span>
           <img :src="p.image_url" class="rank-img" />

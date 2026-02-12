@@ -31,10 +31,10 @@
       </div>
       <div class="review-votes">
         <button class="vote-btn" @click="$emit('vote', review.id, true)" title="Полезно">
-          &#128077; {{ review.helpful_count || 0 }}
+          👍 {{ review.helpful_count || 0 }}
         </button>
         <button class="vote-btn" @click="$emit('vote', review.id, false)" title="Не полезно">
-          &#128078; {{ review.not_helpful_count || 0 }}
+          👎 {{ review.not_helpful_count || 0 }}
         </button>
       </div>
       <button v-if="showDelete" class="btn btn-danger btn-sm" @click="$emit('delete', review.id)">
