@@ -1,6 +1,6 @@
 <template>
   <div class="search-bar">
-    <span class="search-icon">&#128269;</span>
+    <span class="search-icon">🔍</span>
     <input
       type="text"
       :value="modelValue"
@@ -8,7 +8,7 @@
       :placeholder="placeholder"
       class="search-input"
     />
-    <button v-if="modelValue" class="clear-btn" @click="$emit('update:modelValue', '')">&#10005;</button>
+    <button v-if="modelValue" class="clear-btn" @click="$emit('update:modelValue', '')">✕</button>
   </div>
 </template>
 

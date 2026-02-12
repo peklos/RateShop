@@ -2,27 +2,27 @@
   <header class="header">
     <div class="header-inner">
       <router-link to="/" class="logo">
-        <span class="logo-icon">&#9733;</span>
+        <span class="logo-icon">⭐</span>
         <span class="logo-text">RateShop</span>
       </router-link>
       <nav class="nav">
         <router-link to="/products" class="nav-link" active-class="active">
-          <span class="nav-icon">&#128722;</span> Товары
+          <span class="nav-icon">🛒</span> Товары
         </router-link>
         <router-link to="/reviews" class="nav-link" active-class="active">
-          <span class="nav-icon">&#128172;</span> Отзывы
+          <span class="nav-icon">💬</span> Отзывы
         </router-link>
         <router-link to="/ratings" class="nav-link" active-class="active">
-          <span class="nav-icon">&#11088;</span> Рейтинги
+          <span class="nav-icon">⭐</span> Рейтинги
         </router-link>
         <router-link to="/search" class="nav-link" active-class="active">
-          <span class="nav-icon">&#128269;</span> Поиск
+          <span class="nav-icon">🔍</span> Поиск
         </router-link>
         <router-link to="/guide" class="nav-link" active-class="active">
-          <span class="nav-icon">&#128214;</span> Памятка
+          <span class="nav-icon">📖</span> Памятка
         </router-link>
         <router-link to="/admin" class="nav-link nav-admin" active-class="active">
-          <span class="nav-icon">&#9881;</span> Админка
+          <span class="nav-icon">⚙️</span> Админка
         </router-link>
       </nav>
     </div>

@@ -12,7 +12,7 @@
       </select>
       <select v-model="filters.rating" @change="loadReviews">
         <option value="">Все оценки</option>
-        <option v-for="s in [5,4,3,2,1]" :key="s" :value="s">{{ s }} &#9733;</option>
+        <option v-for="s in [5,4,3,2,1]" :key="s" :value="s">{{ s }} ★</option>
       </select>
       <span class="results-count">Всего: {{ reviews.length }}</span>
     </div>

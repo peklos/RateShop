@@ -12,7 +12,7 @@
         <div class="section-header" @click="toggleSection(section.id)">
           <span class="section-icon">{{ section.icon }}</span>
           <h2 class="section-title">{{ section.title }}</h2>
-          <span class="section-toggle">{{ openSections.includes(section.id) ? '&#9660;' : '&#9654;' }}</span>
+          <span class="section-toggle">{{ openSections.includes(section.id) ? '▼' : '▶' }}</span>
         </div>
         <div v-show="openSections.includes(section.id)" class="section-content">
           <div v-for="(step, i) in section.steps" :key="i" class="guide-step">
@@ -23,7 +23,7 @@
             </div>
           </div>
           <div v-if="section.tips" class="tips-box">
-            <h4>&#128161; Полезные советы:</h4>
+            <h4>💡 Полезные советы:</h4>
             <ul>
               <li v-for="(tip, i) in section.tips" :key="i">{{ tip }}</li>
             </ul>
@@ -34,13 +34,13 @@
       <!-- FAQ -->
       <div v-if="showFAQ" class="guide-section card">
         <div class="section-header" @click="toggleSection('faq')">
-          <span class="section-icon">&#10067;</span>
+          <span class="section-icon">❓</span>
           <h2 class="section-title">Часто задаваемые вопросы (FAQ)</h2>
-          <span class="section-toggle">{{ openSections.includes('faq') ? '&#9660;' : '&#9654;' }}</span>
+          <span class="section-toggle">{{ openSections.includes('faq') ? '▼' : '▶' }}</span>
         </div>
         <div v-show="openSections.includes('faq')" class="section-content">
           <div v-for="(item, i) in faqItems" :key="i" class="faq-item">
-            <h3 class="faq-question">&#10069; {{ item.q }}</h3>
+            <h3 class="faq-question">❕ {{ item.q }}</h3>
             <p class="faq-answer">{{ item.a }}</p>
           </div>
         </div>
@@ -62,7 +62,7 @@ export default {
       sections: [
         {
           id: 'products',
-          icon: '&#128722;',
+          icon: '🛒',
           title: 'Как просматривать товары',
           steps: [
             {
@@ -90,7 +90,7 @@ export default {
         },
         {
           id: 'reviews',
-          icon: '&#128172;',
+          icon: '💬',
           title: 'Как оставить отзыв',
           steps: [
             {
@@ -122,7 +122,7 @@ export default {
         },
         {
           id: 'all-reviews',
-          icon: '&#128196;',
+          icon: '📄',
           title: 'Как просматривать все отзывы',
           steps: [
             {
@@ -139,7 +139,7 @@ export default {
             },
             {
               title: 'Оцените полезность',
-              text: 'Под каждым отзывом есть кнопки <strong>&#128077;</strong> (полезно) и <strong>&#128078;</strong> (не полезно). Нажмите, чтобы помочь другим понять, какие отзывы самые полезные.'
+              text: 'Под каждым отзывом есть кнопки <strong>👍</strong> (полезно) и <strong>👎</strong> (не полезно). Нажмите, чтобы помочь другим понять, какие отзывы самые полезные.'
             }
           ],
           tips: [
@@ -149,7 +149,7 @@ export default {
         },
         {
           id: 'ratings',
-          icon: '&#11088;',
+          icon: '⭐',
           title: 'Как пользоваться рейтингами',
           steps: [
             {
@@ -172,7 +172,7 @@ export default {
         },
         {
           id: 'search',
-          icon: '&#128269;',
+          icon: '🔍',
           title: 'Как пользоваться поиском',
           steps: [
             {
