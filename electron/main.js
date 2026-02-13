@@ -3,6 +3,11 @@ const { spawn } = require('child_process');
 const path = require('path');
 const http = require('http');
 
+// Fix black screen on machines with old/incompatible GPU drivers
+app.disableHardwareAcceleration();
+app.commandLine.appendSwitch('disable-gpu');
+app.commandLine.appendSwitch('disable-software-rasterizer');
+
 let mainWindow = null;
 let pythonProcess = null;
 
